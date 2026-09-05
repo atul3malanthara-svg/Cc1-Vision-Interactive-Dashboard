@@ -1,0 +1,86 @@
+# ---------------------------------------------------------------------------
+# CC1 Vision - .gitignore
+#
+# The trained model models/stain_classifier.keras is deliberately NOT ignored.
+# At 5.6 MB it is well inside GitHub's limits and it is what makes the
+# repository runnable straight after cloning, with no training step.
+# ---------------------------------------------------------------------------
+
+# --- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.Python
+
+# --- Virtual environments --------------------------------------------------
+.venv/
+.venv-*/
+venv/
+env/
+ENV/
+
+# --- Testing and tooling caches --------------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.ipynb_checkpoints/
+
+# --- Editors and IDEs ------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Logs and temporary files ----------------------------------------------
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.orig
+tmp/
+temp/
+
+# --- Streamlit -------------------------------------------------------------
+.streamlit/secrets.toml
+
+# --- CC1 Vision: generated training dataset --------------------------------
+# ~14 MB across 6,500 image files. Fully reproducible in about a minute with
+#   python dataset_generator.py
+# so it is regenerated rather than versioned.
+dataset/
+
+# --- CC1 Vision: generated analysis output ---------------------------------
+# Every saved run writes a PNG + JSON + CSV bundle here. Output, not source.
+reports/*
+!reports/.gitkeep
+
+# --- CC1 Vision: redundant archive of this same project --------------------
+cc1_vision.zip
+
+# --- CC1 Vision: KEEP the trained model ------------------------------------
+# models/ is tracked, including the .keras weights and their metadata:
+#   stain_classifier.keras, labels.json, model_config.json,
+#   metrics.json, training_history.json
+# Nothing under models/ is ignored.
+
+# --- OS-specific -----------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes

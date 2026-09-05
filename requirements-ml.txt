@@ -1,0 +1,24 @@
+# CC1 Vision - machine-learning requirements.
+#
+# These are what the CNN stain classifier needs, for both training
+# (dataset_generator.py + train_classifier.py) and inference in the dashboard.
+#
+#   python -m pip install -r requirements-ml.txt
+#
+# This file includes requirements.txt, so it installs everything in one go.
+#
+# IMPORTANT: TensorFlow publishes wheels for Python 3.10 - 3.12 only. On a
+# newer interpreter pip reports "No matching distribution found for
+# tensorflow"; create the environment with a supported Python instead.
+#
+# The dashboard still runs without any of these - it falls back to the
+# classical heuristic classifier and says so in the sidebar.
+
+-r requirements.txt
+
+# tensorflow-cpu is the smaller CPU-only build; plain `tensorflow` works too.
+tensorflow-cpu>=2.16,<3.0 ; platform_system == "Windows"
+tensorflow>=2.16,<3.0 ; platform_system != "Windows"
+
+# Test-set metrics: precision, recall, F1, confusion matrix.
+scikit-learn>=1.3

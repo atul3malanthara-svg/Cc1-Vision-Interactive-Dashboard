@@ -1,0 +1,9 @@
+# CC1 Vision - base application requirements.
+# These five packages are all the dashboard needs.
+# No TensorFlow, no PyTorch, no CUDA, no API keys, no model downloads.
+
+streamlit>=1.32,<2.0
+opencv-python-headless>=4.8,<5.0
+numpy>=1.24,<3.0
+pandas>=2.0,<3.0
+Pillow>=10.0

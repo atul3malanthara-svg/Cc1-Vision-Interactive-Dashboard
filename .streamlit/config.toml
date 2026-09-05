@@ -1,0 +1,14 @@
+# CC1 Vision - animated product dashboard theme.
+[theme]
+base = "light"
+primaryColor = "#1397E7"
+backgroundColor = "#F5F7F8"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#11161D"
+
+[server]
+maxUploadSize = 50
+headless = true
+
+[browser]
+gatherUsageStats = false

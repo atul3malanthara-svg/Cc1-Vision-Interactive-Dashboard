@@ -1,0 +1,112 @@
+{
+  "test_samples": 975,
+  "test_accuracy": 0.9641025641025641,
+  "macro_precision": 0.9688478667820405,
+  "macro_recall": 0.9611111111111112,
+  "macro_f1": 0.9642183698023427,
+  "weighted_precision": 0.9655461790238778,
+  "weighted_recall": 0.9641025641025641,
+  "weighted_f1": 0.9640122230128132,
+  "stain_vs_clean": {
+    "precision": 1.0,
+    "recall": 0.976,
+    "f1": 0.9878542510121457,
+    "accuracy": 0.9815384615384616
+  },
+  "per_class": {
+    "clean": {
+      "precision": 0.9259259259259259,
+      "recall": 1.0,
+      "f1": 0.9615384615384616,
+      "support": 225
+    },
+    "mud_dirt": {
+      "precision": 0.9863945578231292,
+      "recall": 0.9666666666666667,
+      "f1": 0.9764309764309764,
+      "support": 150
+    },
+    "liquid_spill": {
+      "precision": 1.0,
+      "recall": 0.9933333333333333,
+      "f1": 0.9966555183946488,
+      "support": 150
+    },
+    "grease_oil": {
+      "precision": 0.9722222222222222,
+      "recall": 0.9333333333333333,
+      "f1": 0.9523809523809523,
+      "support": 150
+    },
+    "dark_stain": {
+      "precision": 0.9358974358974359,
+      "recall": 0.9733333333333334,
+      "f1": 0.954248366013072,
+      "support": 150
+    },
+    "scattered_dirt": {
+      "precision": 0.9926470588235294,
+      "recall": 0.9,
+      "f1": 0.9440559440559441,
+      "support": 150
+    }
+  },
+  "confusion_matrix": [
+    [
+      225,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      5,
+      145,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      149,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      140,
+      9,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      4,
+      146,
+      0
+    ],
+    [
+      13,
+      2,
+      0,
+      0,
+      0,
+      135
+    ]
+  ],
+  "class_names": [
+    "clean",
+    "mud_dirt",
+    "liquid_spill",
+    "grease_oil",
+    "dark_stain",
+    "scattered_dirt"
+  ]
+}

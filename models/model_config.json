@@ -1,0 +1,36 @@
+{
+  "model_file": "stain_classifier.keras",
+  "input_size": 96,
+  "color_order": "RGB",
+  "classes": [
+    "clean",
+    "mud_dirt",
+    "liquid_spill",
+    "grease_oil",
+    "dark_stain",
+    "scattered_dirt"
+  ],
+  "stain_classes": [
+    "mud_dirt",
+    "liquid_spill",
+    "grease_oil",
+    "dark_stain",
+    "scattered_dirt"
+  ],
+  "display_names": {
+    "clean": "Clean Floor",
+    "mud_dirt": "Mud / Dirt",
+    "liquid_spill": "Liquid Spill",
+    "grease_oil": "Grease / Oil",
+    "dark_stain": "Dark Stain",
+    "scattered_dirt": "Scattered Dirt"
+  },
+  "min_stain_probability": 0.6,
+  "architecture": "CC1 lightweight CNN (4 conv blocks, GAP head)",
+  "parameters": 481510,
+  "framework": "TensorFlow 2.21.0 / Keras 3.15.1",
+  "trained_epochs": 27,
+  "test_accuracy": 0.9641025641025641,
+  "dataset": "dataset",
+  "note": "Weights are the best-validation checkpoint of an interrupted training run; metrics were measured afterwards on the held-out test split."
+}
