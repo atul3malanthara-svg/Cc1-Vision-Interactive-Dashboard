@@ -261,26 +261,24 @@ function spacer(size = 12) {
 // ---------------------------------------------------------------------------
 const TITLE = "Menstrual Health and Hygiene: Practices, Determinants and Evidence-Based Interventions";
 
-const NO_BORDER = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" };
-const NO_BORDERS = { top: NO_BORDER, bottom: NO_BORDER, left: NO_BORDER, right: NO_BORDER };
+const AUTHOR = {
+  name: "Rohini Garje",
+  institute: "Symbiosis Institute of Computer Science and Research",
+  place: "Pune, Maharashtra, India",
+  email: "rog2424132@sicsr.ac.in",
+};
 
-function authorCell(lines) {
-  const [name, dept, inst, place, email] = lines;
+// Single author: name (11 pt), affiliation (italic), e-mail, centred.
+function authorBlock({ name, institute, place, email }) {
   const line = (text, opts = {}, spacing = {}) => new Paragraph({
     alignment: AlignmentType.CENTER, spacing, children: [new TextRun({ text, ...opts })],
   });
-  return new TableCell({
-    width: { size: FULL_W / 2, type: WidthType.DXA },
-    borders: NO_BORDERS,
-    verticalAlign: VerticalAlign.CENTER,
-    children: [
-      line(name, { size: 22 }, { after: 60 }),
-      line(dept, { italics: true }),
-      line(inst, { italics: true }),
-      line(place, { italics: true }),
-      line(email, {}, { before: 60 }),
-    ],
-  });
+  return [
+    line(name, { size: 22 }, { after: 60 }),
+    line(institute, { italics: true }),
+    line(place, { italics: true }),
+    line(email, {}, { before: 60 }),
+  ];
 }
 
 const titleBlock = [
@@ -292,21 +290,7 @@ const titleBlock = [
     ],
   }),
   spacer(12),
-  new Table({
-    width: { size: FULL_W, type: WidthType.DXA },
-    columnWidths: [FULL_W / 2, FULL_W / 2],
-    layout: TableLayoutType.FIXED,
-    borders: { ...NO_BORDERS, insideHorizontal: NO_BORDER, insideVertical: NO_BORDER },
-    rows: [new TableRow({
-      cantSplit: true,
-      children: [
-        authorCell(["[First Author] and [Second Author]", "[Department of Public Health]",
-          "[Name of University]", "[City, State, Country]", "{first.author, second.author}@university.edu"]),
-        authorCell(["[Third Author]", "[Department of Biomedical Engineering]",
-          "[Name of University]", "[City, State, Country]", "third.author@university.edu"]),
-      ],
-    })],
-  }),
+  ...authorBlock(AUTHOR),
   spacer(18),
 ];
 
@@ -323,7 +307,7 @@ add(new Paragraph({
     new TextRun({ text: "Abstract", bold: true, italics: true, size: 18 }),
     new TextRun({
       bold: true, size: 18,
-      text: " - Menstruation is a normal biological process experienced every month by about 1.8 billion people, yet inadequate access to menstrual materials, water, sanitation and hygiene (WASH), accurate information and supportive social environments continues to undermine health, education and dignity. This paper reviews the current state of menstrual health and hygiene (MHH) and analyses publicly available secondary data from the WHO/UNICEF Joint Monitoring Programme (JMP) and two rounds of India’s National Family Health Survey (NFHS-4, 2015–16, and NFHS-5, 2019–21). Globally, one in four people lacked a basic handwashing facility at home in 2022, and in 2023 only 39% of schools provided menstrual health education and 31% had bins for menstrual waste. In India, the share of women aged 15–24 using hygienic methods of menstrual protection rose from 57.6% to 77.3%, but a 16.8-percentage-point urban–rural gap persists and use is strongly graded by schooling and household wealth. A simple life-cycle model indicates that one user of disposable products discards close to 10,000 units over a lifetime, compared with four menstrual cups. We synthesize evidence on health, psychosocial, educational and environmental outcomes, map barriers onto a socio-ecological framework and propose integrated recommendations spanning education, product access, school infrastructure, health services, waste management and policy.",
+      text: " - Menstruation is a normal biological process experienced every month by about 1.8 billion people, yet inadequate access to menstrual materials, water, sanitation and hygiene (WASH), accurate information and supportive social environments continues to undermine health, education and dignity. This paper reviews the current state of menstrual health and hygiene (MHH) and analyses publicly available secondary data from the WHO/UNICEF Joint Monitoring Programme (JMP) and two rounds of India’s National Family Health Survey (NFHS-4, 2015–16, and NFHS-5, 2019–21). Globally, one in four people lacked a basic handwashing facility at home in 2022, and in 2023 only 39% of schools provided menstrual health education and 31% had bins for menstrual waste. In India, the share of women aged 15–24 using hygienic methods of menstrual protection rose from 57.6% to 77.3%, but a 16.8-percentage-point urban–rural gap persists and use is strongly graded by schooling and household wealth. A simple life-cycle model indicates that one user of disposable products discards close to 10,000 units over a lifetime, compared with four menstrual cups. The paper also synthesizes evidence on health, psychosocial, educational and environmental outcomes, maps barriers onto a socio-ecological framework and proposes integrated recommendations spanning education, product access, school infrastructure, health services, waste management and policy.",
     }),
   ],
 }));
@@ -345,10 +329,10 @@ add(body(`When these conditions are not met, menstruation becomes a source of di
 
 add(subheading("Objectives and Contributions"));
 add(body("This paper consolidates current knowledge on menstrual health and hygiene (MHH) and quantifies its status using recent, publicly available data. Its specific contributions are as follows."));
-add(item("1) Conceptual synthesis", ": We trace the shift from menstrual hygiene management (MHM) to the broader concept of menstrual health and summarize the components and indicators now used for monitoring."));
-add(item("2) Secondary data analysis", ": We analyse global estimates from the WHO/UNICEF Joint Monitoring Programme (JMP) and two rounds of India’s National Family Health Survey (NFHS) to describe levels, trends and inequalities in MHH."));
-add(item("3) Environmental estimate", ": We introduce a transparent life-cycle model of the number of menstrual products used per person to compare disposable and reusable options."));
-add(item("4) Recommendations", ": We map barriers onto a socio-ecological framework and propose evidence-informed actions for policy and practice."));
+add(item("1) Conceptual synthesis", ": The paper traces the shift from menstrual hygiene management (MHM) to the broader concept of menstrual health and summarizes the components and indicators now used for monitoring."));
+add(item("2) Secondary data analysis", ": The paper analyses global estimates from the WHO/UNICEF Joint Monitoring Programme (JMP) and two rounds of India’s National Family Health Survey (NFHS) to describe levels, trends and inequalities in MHH."));
+add(item("3) Environmental estimate", ": The paper introduces a transparent life-cycle model of the number of menstrual products used per person to compare disposable and reusable options."));
+add(item("4) Recommendations", ": The paper maps barriers onto a socio-ecological framework and proposes evidence-informed actions for policy and practice."));
 add(body("The remainder of the paper is organized as follows. Section II defines key concepts, Section III describes the methodology, Section IV presents the results, Section V discusses barriers, interventions and limitations, and Section VI concludes."));
 
 // II. Background
@@ -387,7 +371,7 @@ add(item("2) Global school data", `: The JMP 2024 schools report ${cite("jmp2024
 add(item("3) National data for India", `: NFHS-4 (2015–16) and NFHS-5 (2019–21) are nationally representative household surveys conducted by the International Institute for Population Sciences ${cite("nfhs4", "nfhs5")}; NFHS-5 covered more than 600,000 households. Women aged 15–24 were asked which methods of protection they use during menstruation. Locally prepared napkins, sanitary napkins, tampons and menstrual cups are classified as hygienic methods.`));
 add(item("4) Literature", ": Peer-reviewed articles were identified through PubMed and Google Scholar using combinations of the terms “menstrual health”, “menstrual hygiene”, “period poverty”, “menstrual cup”, “school absenteeism” and “reproductive tract infection”. Systematic reviews, meta-analyses and controlled trials were prioritized and supplemented by reports from United Nations agencies and national governments."));
 add(subheading("Analytical Approach"));
-add(body("Indicators are reported as percentages. Change between survey rounds is expressed in percentage points (pp), and inequality is expressed both as an absolute gap between two groups and as a relative ratio. To compare menstrual products, we estimate the number of units one person uses over a menstruating lifetime. For single-use products,"));
+add(body("Indicators are reported as percentages. Change between survey rounds is expressed in percentage points (pp), and inequality is expressed both as an absolute gap between two groups and as a relative ratio. To compare menstrual products, the number of units one person uses over a menstruating lifetime is estimated. For single-use products,"));
 add(equation([["N", "i"], ["d", "is"], [" = "], ["c", "i"], [" · "], ["Y", "i"], [" · "], ["d", "i"], [" · "], ["p", "i"]], 1));
 add(new Paragraph({
   alignment: AlignmentType.JUSTIFIED,
@@ -483,7 +467,7 @@ add(subheading("Evidence from Interventions"));
 add(body(`Controlled trials of product provision show promising but mixed effects. In a cluster randomized feasibility study in rural Western Kenya, providing menstrual cups or monthly sanitary pads did not reduce school dropout over roughly one year of follow-up, although the study reported lower prevalence of sexually transmitted infections in the intervention arms and good acceptability of both products ${cite("phillips2016")}. In Uganda, a quasi-randomized trial in eight schools reported that providing reusable sanitary pads or puberty education was associated with improved school attendance ${cite("montgomery2016")}. A systematic review of MHM interventions in LMICs judged the evidence for educational and psychosocial benefits to be promising but limited by study quality ${cite("hennegan2016")}, underscoring the need for rigorous, adequately powered trials.`));
 add(body(`Policy levers are increasingly being used. India launched a scheme in 2011 to provide subsidized sanitary napkins to adolescent girls in rural areas ${cite("mohfw2011")}, exempted sanitary napkins from the Goods and Services Tax in 2018 and supplies low-cost napkins through public pharmacies. Scotland became the first country to legislate universal free access to period products through the Period Products (Free Provision) (Scotland) Act 2021 ${cite("scotland2021")}. The improvements observed between NFHS-4 and NFHS-5 coincide with such efforts, although survey data alone cannot establish causality.`));
 add(subheading("Recommendations"));
-add(body("Based on the evidence reviewed, we propose six priority actions."));
+add(body("Based on the evidence reviewed, six priority actions are proposed."));
 add(item("1) Education before menarche", ": Integrate comprehensive, age-appropriate MHH education into school curricula for all genders, delivered before girls reach menarche."));
 add(item("2) MHH-ready schools", ": Ensure every school has functional, private, gender-segregated toilets with water, soap, locks and bins for menstrual waste, together with an emergency supply of products."));
 add(item("3) Affordable choice", ": Provide free or subsidized products, including reusable options such as cloth pads and menstrual cups, with guidance on their safe use and care."));
@@ -499,7 +483,7 @@ add(body("Menstrual health is a matter of health, education, gender equality and
 
 // Acknowledgment and references
 add(heading("Acknowledgment", { numbered: false }));
-add(body("The authors thank the International Institute for Population Sciences, Mumbai, and the WHO/UNICEF Joint Monitoring Programme for making the survey data used in this study publicly available."));
+add(body("The author thanks the International Institute for Population Sciences, Mumbai, and the WHO/UNICEF Joint Monitoring Programme for making the survey data used in this study publicly available."));
 add(heading("References", { numbered: false }));
 for (const key of refOrder) {
   const hasUrl = REFS[key].some(([t]) => t.includes("http"));
@@ -518,7 +502,7 @@ if (unused.length) throw new Error(`uncited references: ${unused.join(", ")}`);
 const pageProps = { page: { size: PAGE, margin: MARGIN } };
 
 const doc = new Document({
-  creator: "Author",
+  creator: AUTHOR.name,
   title: TITLE,
   description: "Research paper on menstrual health and hygiene in IEEE conference format",
   styles: {

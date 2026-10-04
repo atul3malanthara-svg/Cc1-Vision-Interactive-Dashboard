@@ -1,6 +1,7 @@
 # Menstrual Health and Hygiene — IEEE conference paper
 
-A research paper on menstrual health and hygiene (MHH), laid out to match the
+A research paper by Rohini Garje (Symbiosis Institute of Computer Science and
+Research, Pune) on menstrual health and hygiene (MHH), laid out to match the
 IEEE two-column conference template (US Letter, Times New Roman, 0.25-in column
 gap, small-caps Roman-numeral headings, 8-pt captions and references).
 
@@ -31,8 +32,7 @@ assumptions in Table III.
 
 ## Before submitting
 
-- Replace the bracketed author names, affiliations and e-mails, and the
-  funding footnote.
+- Replace the placeholder funding footnote under the title.
 - Re-check each statistic against the original report if your venue requires it.
 
 ## Rebuild
